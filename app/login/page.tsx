@@ -39,7 +39,7 @@ const MUTATE_REGISTER = gql`
   }
 `;
 
-const page = () => {
+const LoginPage = () => {
   const [userName, setUserName] = useState("");
   const [userPwd, setUserPwd] = useState("");
   // const { register, handleSubmit, getValues, setValue } =
@@ -79,7 +79,7 @@ const page = () => {
 
   const handleClickLogin = () => {
     console.log(`userPwd=${userPwd}`);
-    const variables: { username?: string; password: string } = {};
+    // const variables: { username?: string; password: string } = {};
     // const country = getValues("country");
     // const countryCode = getValues("countryCode");
     // const realcountryCode = "+" + countryCode;
@@ -91,33 +91,30 @@ const page = () => {
 
     //   signInFn({ variables });
     // }
-    variables.username = "0918895519";
-    variables.password = userPwd;
+    // variables.username = "0918895519";
+    // variables.password = userPwd;
     // signInFn({
     //   variables,
     // });
   };
 
   const handleClickReg = () => {
-    const variables: { username?: string; password: string } = {};
-
-    variables.username = "0918895519";
-    variables.password = userPwd;
+    // const variables: { username?: string; password: string } = {};
+    // variables.username = "0918895519";
+    // variables.password = userPwd;
     // signInFn({
     //   variables,
     // });
   };
 
   const handleClickSendOTP = () => {
-    const variables: { countryCode: string; mobile?: string; email: string } =
-      {};
-
-    variables.countryCode = "+886";
-    variables.mobile = "0918895519";
-
-    signOTPFn({
-      variables,
-    });
+    // const variables: { countryCode: string; mobile?: string; email: string } =
+    //   {};
+    // variables.countryCode = "+886";
+    // variables.mobile = "0918895519";
+    // signOTPFn({
+    //   variables,
+    // });
   };
   //   const _submit: SubmitHandler<SignInSchema> = useCallback(
   //     ({ username, password }) => {
@@ -212,11 +209,4 @@ const LoginForm = () => {
   );
 };
 
-const LoginPage = () => {
-  return (
-    <>
-      <h1>22</h1>
-    </>
-  );
-};
-export default page;
+export default LoginPage;

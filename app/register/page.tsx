@@ -39,7 +39,7 @@ const MUTATE_REGISTER = gql`
   }
 `;
 
-const page = () => {
+const RegisterPage = () => {
   const [userName, setUserName] = useState("");
   const [userPwd, setUserPwd] = useState("");
   // const { register, handleSubmit, getValues, setValue } =
@@ -78,8 +78,8 @@ const page = () => {
   });
 
   const handleClickLogin = () => {
-    console.log(`userPwd=${userPwd}`);
-    const variables: { username?: string; password: string } = {};
+    // console.log(`userPwd=${userPwd}`);
+    // const variables: { username?: string; password: string } = {};
     // const country = getValues("country");
     // const countryCode = getValues("countryCode");
     // const realcountryCode = "+" + countryCode;
@@ -88,36 +88,32 @@ const page = () => {
     //   country
     // );
     // if (mobileE164) {
-
     //   signInFn({ variables });
     // }
-    variables.username = "0918895519";
-    variables.password = userPwd;
+    // variables.username = "0918895519";
+    // variables.password = userPwd;
     // signInFn({
     //   variables,
     // });
   };
 
   const handleClickReg = () => {
-    const variables: { username?: string; password: string } = {};
-
-    variables.username = "0918895519";
-    variables.password = userPwd;
+    // const variables: { username?: string; password: string } = {};
+    // variables.username = "0918895519";
+    // variables.password = userPwd;
     // signInFn({
     //   variables,
     // });
   };
 
   const handleClickSendOTP = () => {
-    const variables: { countryCode: string; mobile?: string; email: string } =
-      {};
-
-    variables.countryCode = "+886";
-    variables.mobile = "0918895519";
-
-    signOTPFn({
-      variables,
-    });
+    // const variables: { countryCode: string; mobile?: string; email: string } =
+    //   {};
+    // variables.countryCode = "+886";
+    // variables.mobile = "0918895519";
+    // signOTPFn({
+    //   variables,
+    // });
   };
   //   const _submit: SubmitHandler<SignInSchema> = useCallback(
   //     ({ username, password }) => {
@@ -152,14 +148,6 @@ const page = () => {
 
 const BackgroundImg = () => {
   return <></>;
-};
-
-const RegisterPage = () => {
-  return (
-    <>
-      <h1>11</h1>
-    </>
-  );
 };
 
 const Slogan = () => {
@@ -224,4 +212,4 @@ const LoginPage = () => {
     </>
   );
 };
-export default page;
+export default RegisterPage;

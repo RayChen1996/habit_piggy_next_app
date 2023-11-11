@@ -40,11 +40,6 @@ const config: Config = {
         serif: ["--font-noto-serif-tc", ...defaultTheme.fontFamily.serif],
         mono: ["--font-noto-sans-mono", ...defaultTheme.fontFamily.mono],
       },
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
     },
   },
 };
