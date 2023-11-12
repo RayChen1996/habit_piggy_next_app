@@ -4,7 +4,7 @@ import PageTitle from "../components/pageTitle";
 import Image from "next/image";
 const page = () => {
   return (
-    <div className=" text-black flex  flex-col items-center justify-center h-screen ">
+    <div className=" text-black flex  flex-col items-center justify-center  ">
       <div className=" flex w-1/3 border-blue-50 p-5 justify-center ">
         <PageTitle pageTitleText={"推薦文章"} />
       </div>
@@ -85,7 +85,7 @@ const ArticleList = () => {
             <p>{article.description}</p>
             <div className="flex justify-end px-5">
               <button className="btn btn-primary text-right text-black">
-                觀看文章
+                <a href="/articleDetail">觀看文章</a>
               </button>
             </div>
           </div>

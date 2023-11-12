@@ -138,7 +138,7 @@ const RegisterPage = () => {
         backgroundImage:
           'url("https://github.com/chunjull/Habit-Piggy/blob/main/assets/images/registerBanner.jpg?raw=true")',
       }}
-      className="bg-cover gap-5 bg-center h-screen flex items-center justify-center"
+      className="bg-cover gap-5 bg-center h-screen  md:text-center sm:text-center  lg:flex  items-center justify-center"
     >
       <Slogan />
       <LoginForm />
@@ -168,37 +168,45 @@ const Slogan = () => {
 
 const LoginForm = () => {
   return (
-    <div className=" p-16  bg-white rounded w-96 ">
-      <form>
-        <h1 className=" font-bold text-4xl pb-4 text-amber-400 "> 會員註冊</h1>
-        <label className=" font-bold text-xl text-amber-400 " htmlFor="account">
-          Account
-        </label>
-        <br />
-        <input className=" bg-white pb-4" id="account" type="text" />
-        <br />
-        <label className=" text-xl font-bold text-amber-400 " htmlFor="pwd">
-          Email
-        </label>
-        <br />
-        <input id="pwd" className=" bg-white pb-4" type="text" />
-        <label className=" text-xl font-bold text-amber-400 " htmlFor="pwd">
-          Password
-        </label>
-        <br />
-        <input id="pwd" className=" bg-white pb-4" type="text" />
-        <br /> <br />
-        <button className="btn btn-primary text-white font-bold">註冊</button>
-        <br />
-        <br />
-        <div className="border-t  font-bold border-black"></div>
-        <div className=" flex justify-between p-5 ">
-          <span className=" text-black">已經有帳號？</span>
-          <span className=" text-black">
-            <a href="/login">立即登入</a>
-          </span>
-        </div>
-      </form>
+    <div className="flex justify-center items-center h-screen">
+      <div className=" p-16  bg-white rounded w-96 ">
+        <form>
+          <h1 className=" font-bold text-4xl pb-4 text-amber-400 ">
+            {" "}
+            會員註冊
+          </h1>
+          <label
+            className=" font-bold text-xl text-amber-400 "
+            htmlFor="account"
+          >
+            Account
+          </label>
+          <br />
+          <input className=" bg-white pb-4" id="account" type="text" />
+          <br />
+          <label className=" text-xl font-bold text-amber-400 " htmlFor="pwd">
+            Email
+          </label>
+          <br />
+          <input id="pwd" className=" bg-white pb-4" type="text" />
+          <label className=" text-xl font-bold text-amber-400 " htmlFor="pwd">
+            Password
+          </label>
+          <br />
+          <input id="pwd" className=" bg-white pb-4" type="text" />
+          <br /> <br />
+          <button className="btn btn-primary text-white font-bold">註冊</button>
+          <br />
+          <br />
+          <div className="border-t  font-bold border-black"></div>
+          <div className=" flex justify-between p-5 ">
+            <span className=" text-black">已經有帳號？</span>
+            <span className=" text-black">
+              <a href="/login">立即登入</a>
+            </span>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
