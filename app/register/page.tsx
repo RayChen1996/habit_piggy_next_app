@@ -187,13 +187,11 @@ const LoginForm = () => {
         </label>
         <br />
         <input id="pwd" className=" bg-white pb-4" type="text" />
-        <br />
+        <br /> <br />
         <button className="btn btn-primary text-white font-bold">註冊</button>
         <br />
         <br />
-
         <div className="border-t  font-bold border-black"></div>
-
         <div className=" flex justify-between p-5 ">
           <span className=" text-black">已經有帳號？</span>
           <span className=" text-black">

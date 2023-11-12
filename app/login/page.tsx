@@ -185,19 +185,16 @@ const LoginForm = () => {
         <br />
         <input className=" bg-white pb-4" id="account" type="text" />
         <br />
-
         <label className=" text-xl font-bold text-amber-400 " htmlFor="pwd">
           Password
         </label>
         <br />
         <input id="pwd" className=" bg-white pb-4" type="text" />
-        <br />
+        <br /> <br />
         <button className="btn btn-primary text-white font-bold">登入</button>
         <br />
         <br />
-
         <div className="border-t  font-bold border-black"></div>
-
         <div className=" flex justify-between p-5 ">
           <span className=" text-black">還沒有帳號?</span>
           <span className=" text-black">

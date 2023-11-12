@@ -19,7 +19,7 @@ const BackgroundImage = () => {
         backgroundImage:
           'url("https://github.com/chunjull/Habit-Piggy/blob/main/assets/images/subscribeBanner.jpg?raw=true")',
       }}
-      className="bg-cover gap-5 bg-center h-1/3  flex flex-col text-start items-center justify-center   "
+      className=" py-10 bg-cover gap-5 bg-center h-1/3  flex flex-col text-start items-center justify-center   "
     >
       <div>Subscribe</div>
       <div>每月只需支付 NT$109 即可暢享訂閱服務</div>
@@ -28,7 +28,7 @@ const BackgroundImage = () => {
         以及更多專屬功能。
       </span>
       <button className="btn btn-primary text-white font-bold text-lg">
-        月付最低 NT$109
+        <a href="/solution">月付最低 NT$109</a>
       </button>
     </div>
   );
@@ -38,7 +38,7 @@ const CompareTable = () => {
   return (
     <div className=" text-black flex flex-col justify-center items-center p-10">
       <h2 className=" font-bold text-2xl">升級訂閱會員有什麼好處？</h2>
-      <table className=" border-yellow-400 table table-fixed p-2 text-black text-center">
+      <table className=" w-1/3 border-yellow-400 table table-fixed p-2 text-black text-center">
         <thead>
           <tr>
             <th className="text-black">使用功能</th>

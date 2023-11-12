@@ -56,7 +56,10 @@ export default function RootLayout({
                   src="https://github.com/chunjull/Habit-Piggy/blob/main/assets/images/icon.png?raw=true"
                   alt=""
                 />
-                <span className="font-sans hover:font-serif">Habit Piggy</span>
+                <span className="font-sans hover:font-serif">
+                  {" "}
+                  <a href="/">Habit Piggy</a>{" "}
+                </span>
               </li>
               <ul className=" flex items-center gap-5">
                 <li>
@@ -75,7 +78,7 @@ export default function RootLayout({
             </ul>
           </header>
 
-          <div className="content bg-white  h-screen ">{children}</div>
+          <div className="content bg-white ">{children}</div>
 
           <footer className="footer p-10 bg-primary-content text-white flex">
             <ul className=" flex justify-around w-full ">
