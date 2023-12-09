@@ -8,14 +8,14 @@ const about = () => {
       style={{
         backgroundImage:
           'url("https://github.com/chunjull/Habit-Piggy/blob/main/assets/images/bg-custom.jpg?raw=true")',
+        backgroundPosition: "center top", // 调整背景图的位置，使其在垂直方向上居中
       }}
-      className="bg-cover gap-5 bg-center h-screen flex items-center justify-center flex-col"
+      className=" bg-center h-screen"
     >
-      <div className=" text-black w-2/5 ">
+      <div className=" text-black w-3/5 flex flex-col justify-center items-center ">
         <div style={{ position: "relative", width: "50%" }}>
           <p style={{ position: "relative", width: "50%", zIndex: "99" }}>
             <h3 className=" text-3xl font-bold">ABOUT</h3>
-
             <span
               style={{
                 position: "absolute",
@@ -32,7 +32,7 @@ const about = () => {
           如何使用「Habit Piggy」？ <br /> 非常簡單！
         </p>
       </div>
-      <div className="lg:flex w-2/4 gap-10 ">
+      <div className="lg:flex  w-4/4 gap-10    justify-center items-center ">
         <div
           style={{
             border: "4px solid white",
@@ -41,7 +41,7 @@ const about = () => {
           }}
         >
           <Image
-            className="rounded-full"
+            className="rounded-full md:items-center sm:bg-center"
             style={{ borderRadius: "50%" }}
             width={400}
             height={400}
@@ -49,7 +49,7 @@ const about = () => {
             alt=""
           />
         </div>
-        <div className=" text-black md:text-center ">
+        <div className="  sm:p-5 text-black font-bold text-xl ">
           <p>
             首先，
             <br />
@@ -60,12 +60,13 @@ const about = () => {
             慣。
           </p>
           <br />
-
+          <br />
           <p>
             接下來， <br />
             每當你完成目標習慣，離夢想更
             <br /> 進一步就是最好的獎勵。
           </p>
+          <br />
           <br />
           <p>
             但如果你在某天沒有完成目標怎

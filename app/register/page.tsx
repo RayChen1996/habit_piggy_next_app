@@ -4,134 +4,61 @@ import { type SubmitHandler, useForm } from "react-hook-form";
 import { gql, useMutation } from "@apollo/client";
 import Image from "next/image";
 // import { SignInSchema, defaultValues, signInSchema } from "@/form/signIn";
-// import Swal from "sweetalert2";
-const MUTATE_SIGN_IN = gql`
-  mutation signIn22($username: String!, $password: String!) {
-    signIn(username: $username, password: $password) {
-      success
-      message
-      token
-    }
-  }
-`;
-
-const MUTATE_SEND_OTP = gql`
-  mutation sendVerificationCode($countryCode: String, $mobile: String) {
-    sendVerificationCode(countryCode: $countryCode, mobile: $mobile) {
-      # "成功"
-      success
-      # "訊息"
-      message
-    }
-  }
-`;
-
+import Swal from "sweetalert2";
+import { useRouter } from "next/navigation";
 const MUTATE_REGISTER = gql`
-  mutation signUp($memberInput: MemberInput!, $verificationCode: String) {
-    signUp(memberInput: $memberInput, verificationCode: $verificationCode) {
-      # "成功"
-      success
-      # "訊息"
-      message
-      # "登入憑證"
+  mutation Register($username: String!, $password: String!) {
+    register(username: $username, password: $password) {
       token
     }
   }
 `;
 
-const RegisterPage = () => {
-  const [userName, setUserName] = useState("");
-  const [userPwd, setUserPwd] = useState("");
-  // const { register, handleSubmit, getValues, setValue } =
-  //   useForm<SignInSchema>({
-  //     defaultValues,
-  //     shouldUseNativeValidation: true,
-  //     mode: "onChange",
-  //   });
-  const [signInFn, { loading }] = useMutation(MUTATE_SIGN_IN, {
-    onCompleted({ signIn }) {
-      if (signIn.success) {
-        //   useTokenStore.getState().setToken(signIn.token);
-        console.log("success ", signIn);
-        localStorage.setItem("token", signIn.token);
-      } else if (signIn.message) {
-        alert(signIn.message);
+export default function RegisterPage() {
+  const router = useRouter();
+  const [regFn, { loading }] = useMutation(MUTATE_REGISTER, {
+    onCompleted({ register }) {
+      console.log("register", register);
+      if (register.token) {
+        console.log("Success", register);
+        localStorage.setItem("token", register.token);
+        Swal.fire({
+          icon: "success",
+          title: "註冊成功",
+          text: "歡迎！",
+          timer: 1000, // 设置弹窗自动消失的时间（毫秒）
+          showConfirmButton: false, // 隐藏“确认”按钮
+        });
+        setTimeout(() => {
+          router.push("/login"); // Redirect to '/manager' after successful login
+        }, 500);
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "註冊失敗",
+          text: "已存在使用者",
+          timer: 500,
+        });
       }
     },
-    onError() {
+    onError(err) {
+      console.log(err);
       return null;
     },
   });
 
-  const [signOTPFn] = useMutation(MUTATE_SEND_OTP, {
-    onCompleted({ signIn }) {
-      if (signIn.success) {
-        //   useTokenStore.getState().setToken(signIn.token);
-        console.log("success ", signIn);
-      } else if (signIn.message) {
-        alert(signIn.message);
-      }
-    },
-    onError() {
-      return null;
-    },
-  });
-
-  const handleClickLogin = () => {
-    // console.log(`userPwd=${userPwd}`);
-    // const variables: { username?: string; password: string } = {};
-    // const country = getValues("country");
-    // const countryCode = getValues("countryCode");
-    // const realcountryCode = "+" + countryCode;
-    // const mobileE164 = phoneValidator.formatE164(
-    //   realcountryCode + username,
-    //   country
-    // );
-    // if (mobileE164) {
-    //   signInFn({ variables });
-    // }
-    // variables.username = "0918895519";
-    // variables.password = userPwd;
-    // signInFn({
-    //   variables,
-    // });
+  const onSubmit: SubmitHandler<RegisterFormProps> = (data) => {
+    console.log(data);
+    regFn({
+      variables: {
+        username: data.username,
+        password: data.password,
+      },
+    });
   };
 
-  const handleClickReg = () => {
-    // const variables: { username?: string; password: string } = {};
-    // variables.username = "0918895519";
-    // variables.password = userPwd;
-    // signInFn({
-    //   variables,
-    // });
-  };
+  const { register, handleSubmit } = useForm<LoginFormInputs>();
 
-  const handleClickSendOTP = () => {
-    // const variables: { countryCode: string; mobile?: string; email: string } =
-    //   {};
-    // variables.countryCode = "+886";
-    // variables.mobile = "0918895519";
-    // signOTPFn({
-    //   variables,
-    // });
-  };
-  //   const _submit: SubmitHandler<SignInSchema> = useCallback(
-  //     ({ username, password }) => {
-  //       const variables: { username?: string; password: string } = { password };
-  //       const country = getValues("country");
-  //       const countryCode = getValues("countryCode");
-  //       const realcountryCode = "+" + countryCode;
-  //       const mobileE164 = phoneValidator.formatE164(
-  //         realcountryCode + username,
-  //         country
-  //       );
-  //       if (mobileE164) {
-  //         variables.username = mobileE164.replace(realcountryCode, "");
-  //         signInFn({ variables });
-  //       }
-  //     },
-  //     [getValues, signInFn]
-  //   );
   return (
     <div
       style={{
@@ -141,14 +68,10 @@ const RegisterPage = () => {
       className="bg-cover gap-5 bg-center h-screen  md:text-center sm:text-center  lg:flex  items-center justify-center"
     >
       <Slogan />
-      <LoginForm />
+      <RegisterForm register={register} handleSubmit={handleSubmit(onSubmit)} />
     </div>
   );
-};
-
-const BackgroundImg = () => {
-  return <></>;
-};
+}
 
 const Slogan = () => {
   return (
@@ -165,35 +88,43 @@ const Slogan = () => {
     </div>
   );
 };
-
-const LoginForm = () => {
+interface RegisterFormProps {
+  register: ReturnType<typeof useForm>["register"];
+  handleSubmit: ReturnType<typeof useForm>["handleSubmit"];
+}
+const RegisterForm: React.FC<RegisterFormProps> = ({
+  register,
+  handleSubmit,
+}) => {
   return (
     <div className="flex justify-center items-center h-screen">
       <div className=" p-16  bg-white rounded w-96 ">
-        <form>
-          <h1 className=" font-bold text-4xl pb-4 text-amber-400 ">
-            {" "}
-            會員註冊
-          </h1>
+        <form onSubmit={handleSubmit}>
+          <h1 className=" font-bold text-4xl pb-4 text-amber-400 ">會員註冊</h1>
           <label
             className=" font-bold text-xl text-amber-400 "
             htmlFor="account"
           >
-            Account
+            帳號
           </label>
           <br />
-          <input className=" bg-white pb-4" id="account" type="text" />
+          <input
+            id="pwd"
+            {...register("username")}
+            className=" bg-white pb-4 text-black rounded-xl border-2 border-gray text-center"
+            type="text"
+          />
           <br />
           <label className=" text-xl font-bold text-amber-400 " htmlFor="pwd">
-            Email
+            密碼
           </label>
           <br />
-          <input id="pwd" className=" bg-white pb-4" type="text" />
-          <label className=" text-xl font-bold text-amber-400 " htmlFor="pwd">
-            Password
-          </label>
-          <br />
-          <input id="pwd" className=" bg-white pb-4" type="text" />
+          <input
+            {...register("password")}
+            id="pwd"
+            className=" bg-white pb-4 text-black rounded-xl border-2 border-gray text-center"
+            type="password"
+          />
           <br /> <br />
           <button className="btn btn-primary text-white font-bold">註冊</button>
           <br />
@@ -210,12 +141,3 @@ const LoginForm = () => {
     </div>
   );
 };
-
-const LoginPage = () => {
-  return (
-    <>
-      <h1>22</h1>
-    </>
-  );
-};
-export default RegisterPage;

@@ -73,7 +73,7 @@ const ArticleList = () => {
           </div>
           <div className="p-3">
             {/* You can replace the placeholder with your actual image source */}
-            <img
+            <Image
               width={150}
               height={150}
               src={article.imgSrc}
@@ -84,9 +84,12 @@ const ArticleList = () => {
             <h3 className=" font-bold text-2xl">{article.title}</h3>
             <p>{article.description}</p>
             <div className="flex justify-end px-5">
-              <button className="btn btn-primary text-right text-black">
-                <a href="/articleDetail">觀看文章</a>
-              </button>
+              <a
+                className="btn btn-primary text-right text-black"
+                href="/articleDetail"
+              >
+                觀看文章
+              </a>
             </div>
           </div>
         </div>

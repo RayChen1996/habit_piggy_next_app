@@ -19,17 +19,21 @@ const BackgroundImage = () => {
         backgroundImage:
           'url("https://github.com/chunjull/Habit-Piggy/blob/main/assets/images/subscribeBanner.jpg?raw=true")',
       }}
-      className=" py-10 bg-cover gap-5 bg-center h-1/3  flex flex-col text-start items-center justify-center   "
+      className=" py-10 bg-cover gap-2 bg-center lg:h-1/3   flex flex-col lg:text-start lg:items-center lg:justify-center    "
     >
       <div>Subscribe</div>
       <div>每月只需支付 NT$109 即可暢享訂閱服務</div>
-      <span className=" text-2xl">
+      <span className=" lg:text-2xl   sm:text-center sm:flex sm:justify-center sm:items-center">
         習慣數目無限制、多元化頻率設定、圖表分析， <br />
         以及更多專屬功能。
       </span>
-      <button className="btn btn-primary text-white font-bold text-lg">
-        <a href="/solution">月付最低 NT$109</a>
-      </button>
+
+      <a
+        className="btn btn-primary text-white font-bold text-lg lg:w-1/4 md:w-1/2 sm:w-1/2"
+        href="/solution"
+      >
+        月付最低 NT$109
+      </a>
     </div>
   );
 };
@@ -38,7 +42,7 @@ const CompareTable = () => {
   return (
     <div className=" text-black flex flex-col justify-center items-center p-10">
       <h2 className=" font-bold text-2xl">升級訂閱會員有什麼好處？</h2>
-      <table className=" w-1/3 border-yellow-400 table table-fixed p-2 text-black text-center">
+      <table className=" lg:w-1/3 border-4 md:w-full border-yellow-400 table table-fixed p-2 text-black text-center">
         <thead>
           <tr>
             <th className="text-black">使用功能</th>
@@ -78,7 +82,13 @@ const ActionButton = () => {
     <div className="  text-black flex flex-col justify-center items-center p-10 gap-5">
       <h2 className=" font-bold text-2xl">心動不如馬上心動！</h2>
       <div>現在訂閱，第一個月內完全免費！</div>
-      <button className="btn btn-primary text-white">立即訂閱</button>
+
+      <a
+        className="btn btn-primary text-white font-bold text-lg"
+        href="/solution"
+      >
+        立即訂閱
+      </a>
     </div>
   );
 };

@@ -2,7 +2,7 @@ import React from "react";
 
 const ActionButton = () => {
   return (
-    <div className="bg-cover py-5 text-black gap-5 bg-center bg-white flex flex-col  items-center justify-center m-0 mx-auto">
+    <div className="bg-cover py-32 text-black gap-5 bg-center bg-white flex flex-col  items-center justify-center m-0 mx-auto">
       <p style={{ position: "relative", zIndex: "99" }}>
         <div>
           <p style={{ position: "relative", zIndex: "99" }}>
@@ -30,7 +30,9 @@ const ActionButton = () => {
           }}
         ></span>
       </p>
-      <button className="btn btn-primary text-white ">會員登入</button>
+      <a className="btn btn-primary text-white " href="/login">
+        會員登入
+      </a>
     </div>
   );
 };

@@ -33,7 +33,7 @@ const Solution = () => {
 
   return (
     <>
-      <div className=" text-black h-screen flex justify-center flex-col items-center p-5">
+      <div className=" text-black h-screen flex justify-center flex-col items-center text-left">
         <Stepper />
         {renderStep()}
         <div className="flex justify-around items-center gap-5">
@@ -46,6 +46,15 @@ const Solution = () => {
             </button>
           )}
           {step < 2 && (
+            <button
+              className="btn btn-primary text-white"
+              onClick={() => setStep(step + 1)}
+            >
+              {RenderButtonText()}
+            </button>
+          )}
+
+          {step == 2 && (
             <button
               className="btn btn-primary text-white"
               onClick={() => setStep(step + 1)}
@@ -96,11 +105,12 @@ const Step3PaymentSuccess = () => {
 
 const OrderText = () => {
   return (
-    <div className=" w-3/5 border-8  bg-cover bg-white p-5 gap-5 bg-center h-2/3 flex flex-col  justify-center">
-      <h1 className=" text-black font-bold text-left">訂單摘要</h1>
+    <div className=" w-3/5 border-8  bg-cover bg-white gap-1 bg-center h-1/2 flex flex-col  justify-center ">
+      <h1 className=" text-black font-bold text-left lg:text-left sm:text-center md:text-center ">
+        訂單摘要
+      </h1>
       <div className="  text-black border-4  border-yellow-500 p-5 rounded-e flex justify-between  ">
         <div className=" text-2xl">從 2023/09/17 開始：</div>
-
         <div className=" text-right">
           <span className=" text-3xl font-bold">每月 NT$109</span> <br />{" "}
           （價格已含稅）
@@ -127,7 +137,7 @@ const CalcFeeText = () => {
 
         <div className="border-t py-2 font-bold border-black"></div>
 
-        <div className=" flex justify-between items-center ">
+        <div className=" flex justify-between  ">
           <span className=" text-3xl font-bold">今日應付金額</span>
           <span>NT$109</span>
         </div>
@@ -139,6 +149,10 @@ const CalcFeeText = () => {
 const CalcDetailText = () => {
   return (
     <div className=" w-3/5 border-8  bg-cover bg-white p-5 gap-5 bg-center h-2/3 flex flex-col  justify-center">
+      <h1 className=" text-black font-bold text-left text-2xl">訂購成功</h1>
+      <span className=" text-black font-bold text-left">
+        以下為您的訂單細節：
+      </span>
       <div className="    text-black border-4  bg-yellow-100 border-yellow-500 p-5 rounded-e flex flex-col  ">
         <div className="py-2 flex justify-between items-center  ">
           <div className="flex p-2 flex-col">
