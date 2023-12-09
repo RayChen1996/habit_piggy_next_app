@@ -17,6 +17,7 @@
 }
 
 body {
+  font-family: "Open Sans", sans-serif; /* 根據你選擇的字體名稱 */
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,

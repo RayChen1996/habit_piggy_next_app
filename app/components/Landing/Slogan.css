@@ -1,0 +1,14 @@
+.slogan-container {
+  position: relative;
+}
+
+.typing-text::after {
+  content: "|"; /* 光標 */
+  animation: blink-caret 0.75s infinite;
+}
+
+@keyframes blink-caret {
+  50% {
+    opacity: 0;
+  }
+}
