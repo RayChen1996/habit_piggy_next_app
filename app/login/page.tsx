@@ -6,6 +6,7 @@ import {
   SubmitHandler,
   SubmitErrorHandler,
 } from "react-hook-form";
+import useTokenStore from "../store/userToken";
 import { gql, useMutation } from "@apollo/client";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -73,6 +74,7 @@ const LoginForm = () => {
           timer: 1000, // 设置弹窗自动消失的时间（毫秒）
           showConfirmButton: false, // 隐藏“确认”按钮
         });
+        useTokenStore.getState().setToken(login.token);
         setTimeout(() => {
           router.push("/manager"); // Redirect to '/manager' after successful login
         }, 500);
@@ -109,7 +111,7 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="flex   h-screen">
+    <div className="flex ">
       <div className=" p-16  bg-white rounded w-96   ">
         <form onSubmit={handleSubmit(onSubmitForm)}>
           <h1 className=" font-bold text-4xl pb-4 text-amber-400 ">會員登入</h1>

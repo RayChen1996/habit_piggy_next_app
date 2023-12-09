@@ -27,7 +27,7 @@ const useTokenStore = createWithEqualityFn(
       },
     })),
     {
-      name: "@sgrice_web_token",
+      name: "@habit_web_token",
       storage: createJSONStorage(() => localStorage),
     }
   ),

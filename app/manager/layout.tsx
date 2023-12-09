@@ -151,12 +151,12 @@ const HomePage = () => {
   };
   return (
     <>
-      <div className=" p-5">
+      <div className=" p-5 w-full ">
         <div className="w-full max-w-screen-lg text-black flex flex-row justify-between items-center">
           <h2 className="  font-bold text-2xl ">9 月 17 日</h2>
           <span className=" text-[#FFB800] font-bold text-2xl ">10:23:48</span>
         </div>
-        <table className=" mx-auto table-auto text-black">
+        <table className=" mx-auto table-auto w-full text-black">
           <tbody>
             {habitList.map((habit) => (
               <tr key={habit.id}>
@@ -166,7 +166,7 @@ const HomePage = () => {
                       type="checkbox"
                       checked={habit.Enable}
                       onChange={() => handleEnableChange(habit.id)}
-                      className="form-checkbox h-6 w-6 text-white"
+                      className="checkbox border border-2 form-checkbox h-6 w-6 text-white "
                     />
                   </label>
                 </td>
