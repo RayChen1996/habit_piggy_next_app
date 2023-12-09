@@ -15,7 +15,43 @@ const MUTATE_REGISTER = gql`
 `;
 
 export default function RegisterPage() {
+  return (
+    <div
+      style={{
+        backgroundImage:
+          'url("https://github.com/chunjull/Habit-Piggy/blob/main/assets/images/registerBanner.jpg?raw=true")',
+      }}
+      className="bg-cover gap-5 bg-center h-screen  md:text-center sm:text-center  lg:flex  items-center justify-center"
+    >
+      <Slogan />
+      <RegisterForm />
+    </div>
+  );
+}
+
+const Slogan = () => {
+  return (
+    <div>
+      <div>Sing up</div>
+      <div className=" text-6xl font-bold ">
+        ENJOY <br />
+        JOURNEY
+      </div>
+      <div>
+        在「Habit Piggy」，你可以養成很多習慣，或是存到很多 <br />
+        錢，最棒的是：你可以在養成習慣的同時存錢！
+      </div>
+    </div>
+  );
+};
+interface RegisterFormProps {
+  username: string;
+  password: string;
+}
+const RegisterForm = () => {
   const router = useRouter();
+  const { register, handleSubmit } = useForm<RegisterFormProps>();
+
   const [regFn, { loading }] = useMutation(MUTATE_REGISTER, {
     onCompleted({ register }) {
       console.log("register", register);
@@ -47,8 +83,8 @@ export default function RegisterPage() {
     },
   });
 
-  const onSubmit: SubmitHandler<RegisterFormProps> = (data) => {
-    console.log(data);
+  const onSubmitForm = (data: any) => {
+    console.log(register);
     regFn({
       variables: {
         username: data.username,
@@ -57,49 +93,10 @@ export default function RegisterPage() {
     });
   };
 
-  const { register, handleSubmit } = useForm<LoginFormInputs>();
-
-  return (
-    <div
-      style={{
-        backgroundImage:
-          'url("https://github.com/chunjull/Habit-Piggy/blob/main/assets/images/registerBanner.jpg?raw=true")',
-      }}
-      className="bg-cover gap-5 bg-center h-screen  md:text-center sm:text-center  lg:flex  items-center justify-center"
-    >
-      <Slogan />
-      <RegisterForm register={register} handleSubmit={handleSubmit(onSubmit)} />
-    </div>
-  );
-}
-
-const Slogan = () => {
-  return (
-    <div>
-      <div>Sing up</div>
-      <div className=" text-6xl font-bold ">
-        ENJOY <br />
-        JOURNEY
-      </div>
-      <div>
-        在「Habit Piggy」，你可以養成很多習慣，或是存到很多 <br />
-        錢，最棒的是：你可以在養成習慣的同時存錢！
-      </div>
-    </div>
-  );
-};
-interface RegisterFormProps {
-  register: ReturnType<typeof useForm>["register"];
-  handleSubmit: ReturnType<typeof useForm>["handleSubmit"];
-}
-const RegisterForm: React.FC<RegisterFormProps> = ({
-  register,
-  handleSubmit,
-}) => {
   return (
     <div className="flex justify-center items-center h-screen">
       <div className=" p-16  bg-white rounded w-96 ">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit(onSubmitForm)}>
           <h1 className=" font-bold text-4xl pb-4 text-amber-400 ">會員註冊</h1>
           <label
             className=" font-bold text-xl text-amber-400 "

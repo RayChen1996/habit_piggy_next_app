@@ -1,5 +1,6 @@
 import * as React from "react";
-const SvgComponent = (props) => (
+type FbSvgProps = JSX.IntrinsicElements["svg"];
+const SvgComponent = (props: FbSvgProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={24}

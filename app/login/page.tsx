@@ -1,6 +1,11 @@
 "use client";
 import React, { useRef, useState } from "react";
-import { useForm, SubmitHandler, SubmitErrorHandler } from "react-hook-form";
+import {
+  useForm,
+  FieldValues,
+  SubmitHandler,
+  SubmitErrorHandler,
+} from "react-hook-form";
 import { gql, useMutation } from "@apollo/client";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -23,7 +28,38 @@ interface LoginFormInputs {
 }
 
 export default function LoginPage() {
+  return (
+    <div
+      style={{
+        backgroundImage:
+          'url("https://raw.githubusercontent.com/chunjull/Habit-Piggy/main/assets/images/loginBanner.jpg")',
+      }}
+      className="bg-cover gap-5 bg-center h-screen md:text-center  lg:flex items-center justify-center"
+    >
+      <Slogan />
+      <LoginForm />
+    </div>
+  );
+}
+
+const Slogan = () => {
+  return (
+    <div className=" sm:text-center  sm:flex sm:justify-center sm:items-center lg:flex lg:justify-center lg:items-center flex-col ">
+      <div>Login</div>
+      <div className=" text-6xl font-bold ">
+        WELCOME <br /> BACK
+      </div>
+      <div>
+        歡迎回到「Habit Piggy」！養成習慣、乖乖存錢，你今天 <br />
+        選擇哪一個呢？
+      </div>
+    </div>
+  );
+};
+
+const LoginForm = () => {
   const router = useRouter();
+  const { register, handleSubmit } = useForm<LoginFormInputs>();
   const [signInFn, { loading }] = useMutation(MUTATE_SIGN_IN, {
     onCompleted({ login }) {
       console.log(login);
@@ -62,8 +98,8 @@ export default function LoginPage() {
     },
   });
 
-  const onSubmit: SubmitHandler<LoginFormInputs> = (data) => {
-    console.log(data);
+  const onSubmitForm = (data: any) => {
+    console.log(register);
     signInFn({
       variables: {
         username: data.username,
@@ -72,45 +108,10 @@ export default function LoginPage() {
     });
   };
 
-  const { register, handleSubmit } = useForm<LoginFormInputs>();
-
-  return (
-    <div
-      style={{
-        backgroundImage:
-          'url("https://raw.githubusercontent.com/chunjull/Habit-Piggy/main/assets/images/loginBanner.jpg")',
-      }}
-      className="bg-cover gap-5 bg-center h-screen md:text-center  lg:flex items-center justify-center"
-    >
-      <Slogan />
-      <LoginForm register={register} handleSubmit={handleSubmit(onSubmit)} />
-    </div>
-  );
-}
-
-const Slogan = () => {
-  return (
-    <div className=" sm:text-center  sm:flex sm:justify-center sm:items-center lg:flex lg:justify-center lg:items-center flex-col ">
-      <div>Login</div>
-      <div className=" text-6xl font-bold ">
-        WELCOME <br /> BACK
-      </div>
-      <div>
-        歡迎回到「Habit Piggy」！養成習慣、乖乖存錢，你今天 <br />
-        選擇哪一個呢？
-      </div>
-    </div>
-  );
-};
-interface LoginFormProps {
-  register: ReturnType<typeof useForm>["register"];
-  handleSubmit: ReturnType<typeof useForm>["handleSubmit"];
-}
-const LoginForm: React.FC<LoginFormProps> = ({ register, handleSubmit }) => {
   return (
     <div className="flex   h-screen">
       <div className=" p-16  bg-white rounded w-96   ">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit(onSubmitForm)}>
           <h1 className=" font-bold text-4xl pb-4 text-amber-400 ">會員登入</h1>
           <label
             className=" font-bold text-xl text-amber-400  text-left"

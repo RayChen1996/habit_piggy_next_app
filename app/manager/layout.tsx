@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { HtmlHTMLAttributes } from "react";
 import { useState } from "react";
 import AddIcon from "../components/Svg/AddIcon";
 import CloseButton from "../components/Svg/closeButton";
@@ -214,7 +214,14 @@ const TargetHabit = () => {
           <h2 className=" font-bold text-3xl">習慣紀錄</h2>
           <span className=" cursor-pointer">
             <button
-              onClick={() => document.getElementById("my_modal_1").showModal()}
+              onClick={() => {
+                const modal = document.getElementById(
+                  "my_modal_1"
+                ) as HTMLDialogElement | null;
+                if (modal) {
+                  modal.showModal();
+                }
+              }}
             >
               <AddIcon />
             </button>
@@ -328,7 +335,14 @@ const HistoryHabit = () => {
           <h2 className=" font-bold text-3xl">歷史紀錄</h2>
           <span className=" cursor-pointer">
             <button
-              onClick={() => document.getElementById("my_modal_1").showModal()}
+              onClick={() => {
+                const modal = document.getElementById(
+                  "my_modal_1"
+                ) as HTMLDialogElement | null;
+                if (modal) {
+                  modal.showModal();
+                }
+              }}
             >
               <AddIcon />
             </button>
@@ -348,9 +362,7 @@ const SaveMoney = () => {
         <div className=" pb-4  flex justify-between items-center  ">
           <h2 className=" font-bold text-3xl">存錢筒</h2>
           <span className=" cursor-pointer">
-            <button
-              onClick={() => document.getElementById("my_modal_1").showModal()}
-            >
+            <button>
               <AddIcon />
             </button>
           </span>
@@ -368,9 +380,7 @@ const AccountSetting = () => {
         <div className=" pb-4  flex justify-between items-center  ">
           <h2 className=" font-bold text-3xl">帳號設定</h2>
           <span className=" cursor-pointer">
-            <button
-              onClick={() => document.getElementById("my_modal_1").showModal()}
-            >
+            <button>
               <AddIcon />
             </button>
           </span>

@@ -1,16 +1,13 @@
 "use client";
 import React, { Fragment, useEffect, useRef } from "react";
 
-const page = () => {
+export default function TestPage() {
   const btnRef = useRef(null);
   const inputRef = useRef(null);
   useEffect(() => {
-    console.log("681520");
     console.log(btnRef);
     setTimeout(() => {
       console.log("after 3 sec click");
-      btnRef.current.click();
-      inputRef.current.focus;
     }, 1000);
   }, []);
   return (
@@ -40,7 +37,7 @@ const page = () => {
       />
     </div>
   );
-};
+}
 
 interface RenderComponent {
   title: string;
@@ -71,5 +68,3 @@ const Title = ({ label = "" }: TitleProp) => {
   console.log("渲染標題");
   return <h2>{label}</h2>;
 };
-
-export default page;
