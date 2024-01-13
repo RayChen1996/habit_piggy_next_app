@@ -1,17 +1,23 @@
 "use client";
 import React, { HtmlHTMLAttributes } from "react";
 import { useState } from "react";
+
+//ANCHOR - SVG
 import AddIcon from "../components/Svg/AddIcon";
 import CloseButton from "../components/Svg/closeButton";
-
 import HomeIcon from "../components/Svg/homeIcon";
-
 import SaveMoneyIcon from "../components/Svg/SaveMoney";
-
 import TargetIcon from "../components/Svg/targetIcon";
 import HostoryIcon from "../components/Svg/historyIcon";
-
 import SettingIcon from "../components/Svg/setting";
+
+//ANCHOR - Page 組件
+import SaveMoneyPage from "./Components/SaveMoneyInfo";
+import SaveHistoryPage from "./Components/HistoryHabit";
+import QAPage from "./Components/Question";
+import AccountPage from "./Components/AccountSetting";
+import TargetPage from "./Components/TargetHabit";
+
 export default function ManagerPage() {
   const [activeTab, setActiveTab] = useState("home"); // Initialize with the default tab
   const handleTabClick = (tab: any) => {
@@ -21,19 +27,19 @@ export default function ManagerPage() {
     switch (activeTab) {
       case "home":
         return <HomePage></HomePage>;
-        break;
+
       case "goalHabit":
-        return <TargetHabit></TargetHabit>;
-        break;
+        return <TargetPage></TargetPage>;
+
       case "historyHabit":
-        return <HistoryHabit />;
-        break;
+        return <SaveHistoryPage />;
+
       case "savings":
-        return <SaveMoney />;
-        break;
+        return <SaveMoneyPage />;
+
       case "accountSettings":
-        return <AccountSetting />;
-        break;
+        return <AccountPage />;
+
       default:
         break;
     }

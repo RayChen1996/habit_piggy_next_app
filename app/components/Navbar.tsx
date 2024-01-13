@@ -1,7 +1,10 @@
 "use client";
-import React from "react";
+import React, { memo } from "react";
 import Image from "next/image";
+import useTokenStore from "../store/userToken";
 export default function Navbar() {
+  const token = useTokenStore().token;
+  console.log(token);
   return (
     <header className="header  bg-primary-content text-white flex">
       <ul className=" flex justify-around w-full ">
@@ -27,8 +30,11 @@ export default function Navbar() {
             <a href="/subscription">訂閱方案</a>{" "}
           </li>
           <li>
-            {" "}
-            <a href="/login">會員登入</a>{" "}
+            {token !== null ? (
+              <a href="/login">會員登出</a>
+            ) : (
+              <a href="/login">會員登入</a>
+            )}
           </li>
         </ul>
       </ul>
