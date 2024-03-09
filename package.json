@@ -19,7 +19,9 @@
     "sweetalert": "^2.1.2",
     "sweetalert2": "^11.9.0",
     "typeface-open-sans": "^1.1.13",
-    "zustand": "^4.4.6"
+    "zustand": "^4.4.6",
+    "clsx": "^2.1.0"
+
   },
   "devDependencies": {
     "@types/aos": "^3.0.7",
