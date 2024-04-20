@@ -10,7 +10,11 @@ import { setContext } from "@apollo/client/link/context";
 import useTokenStore from "../store/userToken";
 
 const httpLink = createHttpLink({
-  uri: "https://pink-worrisome-skunk.cyclic.app/graphql", //線上Server
+  // uri: "https://pink-worrisome-skunk.cyclic.app/graphql", //線上Server
+  uri: "https://raychen.co.uk/graphql", //線上Server
+
+
+  
 
   // uri: "http://localhost:4000/graphql", //本地測試
   credentials: "same-origin",
