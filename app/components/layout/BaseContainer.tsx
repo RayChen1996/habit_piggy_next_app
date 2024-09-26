@@ -1,9 +1,5 @@
-"use client";
-import React, { useState } from "react";
+import React from "react";
 
-const BasicComponent = () => {
-  const [count, setCount] = useState(0);
+export default function BasicComponent() {
   return <div className="px-3 w-10"></div>;
-};
-
-export default BasicComponent;
+}

@@ -123,8 +123,8 @@ const OrderText = () => {
 //信用卡付款 計算摘要
 const CalcFeeText = () => {
   return (
-    <div className=" w-3/5 border-8  bg-cover bg-white p-5 gap-5 bg-center h-2/3 flex flex-col  justify-center">
-      <div className="    text-black border-4  bg-yellow-100 border-yellow-500 p-5 rounded-e flex flex-col  ">
+    <div className="w-3/5 border-8 bg-cover bg-white p-5 gap-5 bg-center h-2/3 flex flex-col  justify-center">
+      <div className="text-black border-4  bg-yellow-100 border-yellow-500 p-5 rounded-e flex flex-col  ">
         <div className="py-2 flex justify-between items-center  ">
           <div className="flex p-2 flex-col">
             <span>月費</span>
