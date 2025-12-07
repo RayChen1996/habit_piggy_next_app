@@ -1,8 +1,8 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 
 const Recommend = () => {
-  const [post, setPost] = useState([
+  const post = [
     {
       id: 1,
       message:
@@ -41,7 +41,7 @@ const Recommend = () => {
     {
       id: 7,
       message:
-        "Habit Piggy transformed my daily routines! With its reminders and rewards, I've developed healthy habits effortlessly. It's a fantastic motivator, and the penalty feature keeps me accountable. Highly recommended!",
+        "Habit Piggy transformed my daily routines! With its reminders and rewards, I've developed healthy habits effortlessly.It's a fantastic motivator, and the penalty feature keeps me accountable. Highly recommended!",
       author: "Edward XX",
     },
     {
@@ -50,53 +50,32 @@ const Recommend = () => {
         "「Habit Piggy太棒了！靈活設定目標，提醒功能讓我不再忘記，罰款機制提醒我保持自律，這個工具真的有效。」",
       author: "中壢金城武",
     },
-  ]);
+  ];
   return (
-    <div className=" bg-white py-28 text-black lg:w-5/5 sm:w-full bg-center h-3/5 m-0 mx-auto  ">
-      <div className="   flex justify-center flex-col p-2 m-5 gap-3 text-center">
-        <div>
-          <div style={{ position: "relative", width: "35%" }}>
-            <p style={{ position: "relative", width: "40%", zIndex: "99" }}>
-              <h3 className=" text-3xl font-bold">RECOMMEND</h3>
-
-              <span
-                style={{
-                  position: "absolute",
-                  bottom: "5px",
-                  left: "-5px",
-                  width: "70%",
-                  borderBottom: "10px solid yellow",
-                  zIndex: "-1",
-                }}
-              ></span>
-            </p>
+    <section className="bg-[#fff7e6] py-16">
+      <div className="mx-auto flex max-w-6xl flex-col items-center gap-10 px-4 text-center text-[#1f1f1f]">
+        <div className="space-y-2">
+          <div className="relative mx-auto inline-block">
+            <h3 className="text-3xl font-bold">RECOMMEND</h3>
+            <span className="absolute -bottom-1 left-0 block h-2 w-full bg-[#f8c53a]" />
           </div>
-          <p>
-            「Habit Piggy」受到全球數十個國家的使用者歡迎，
-            快來看看我們的用戶推薦評價！
-          </p>
+          <p>「Habit Piggy」受到全球數十個國家的使用者歡迎，快來看看我們的用戶推薦評價！</p>
         </div>
-        <div className=" bg-white">
-          <ul className="flex flex-wrap justify-center">
-            {post.map((item, index) => (
-              <li
-                key={item.id}
-                className={` w-full sm:w-1/2 lg:w-1/4 md:w p-4 m-2 rounded-md   ${
-                  index === 0 || index === post.length - 1
-                    ? "bg-white"
-                    : index === 2
-                    ? "bg-yellow-500"
-                    : "bg-yellow-200"
-                }`}
-              >
-                <p className="break-words">{item.message}</p>
-                <span className="block text-right">by {item.author}</span>
-              </li>
-            ))}
-          </ul>
+        <div className="grid w-full gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {post.map((item, index) => (
+            <div
+              key={item.id}
+              className={`flex h-full flex-col justify-between rounded-2xl p-4 text-left shadow-md ${
+                index === 2 ? "bg-[#f8c53a] text-[#1f1f1f]" : "bg-white"
+              }`}
+            >
+              <p className="break-words leading-7">{item.message}</p>
+              <span className="mt-4 block text-right text-sm font-semibold">by {item.author}</span>
+            </div>
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

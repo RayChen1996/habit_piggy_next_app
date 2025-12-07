@@ -4,58 +4,35 @@ import React from "react";
 
 import writeImage from "@/public/photo-1484480974693-6ca0a78fb36b.jpg";
 import bg from "@/public/bg-custom.jpg";
-const about = () => {
+
+const About = () => {
   return (
-    <div className="relative">
-      <Image alt="" src={bg} fill />
-      <div className=" text-black w-3/5 z-10 relative flex flex-col justify-center items-center ">
-        <p>
-          如何使用「Habit Piggy」？ <br /> 非常簡單！
-        </p>
-      </div>
-      <div className="lg:flex  z-10  relative justify-center items-center ">
-        <div className="relative w-60 h-60">
-          <Image
-            fill
-            sizes="(min-width:768px) 50vw,100vw"
-            className="rounded-full border-4 border-white"
-            src={writeImage}
-            alt=""
-          />
+    <section className="relative overflow-hidden py-14">
+      <Image alt="" src={bg} fill className="object-cover opacity-70" />
+      <div className="relative mx-auto flex max-w-6xl flex-col gap-10 px-4 lg:flex-row lg:items-center">
+        <div className="relative flex-1">
+          <div className="absolute -left-6 top-0 h-52 w-52 rounded-full bg-[#fdd54f] opacity-80 blur-2xl" />
+          <div className="relative mx-auto h-64 w-64 overflow-hidden rounded-full border-4 border-white shadow-xl lg:mx-0">
+            <Image fill sizes="(min-width:768px) 50vw,100vw" className="object-cover" src={writeImage} alt="寫作" />
+          </div>
         </div>
-        <div className="  sm:p-5 text-black font-bold text-xl ">
-          <p>
-            首先，
-            <br />
-            設定你想養成的目標習慣，無論 <br />
-            是每天運動、每天讀書，還是其 <br />
-            他任何你希望改變或增加的習
-            <br />
-            慣。
-          </p>
-          <br />
-          <br />
-          <p>
-            接下來， <br />
-            每當你完成目標習慣，離夢想更
-            <br /> 進一步就是最好的獎勵。
-          </p>
-          <br />
-          <br />
-          <p>
-            但如果你在某天沒有完成目標怎
-            <br />
-            麼辦？
-            <br />
-            別擔心！我們相信失敗也是學習 <br />
-            的機會。當你未能達成目標時， <br />
-            Habit Piggy會扣除一小筆罰款， <br />
-            以提醒你保持自律。 <br />
-          </p>
+        <div className="flex-1 text-[#1f1f1f]">
+          <h3 className="text-3xl font-bold text-[#121212]">關於 Habit Piggy</h3>
+          <div className="mt-4 space-y-6 text-lg leading-8">
+            <p>
+              首先，設定你想養成的目標習慣，無論是每天運動、每天讀書，還是其他任何你希望改變或增加的習慣。
+            </p>
+            <p>
+              接下來，每當你完成目標習慣，離夢想更進一步就是最好的獎勵。透過持續的紀錄，你會看見自己的改變。
+            </p>
+            <p>
+              如果你在某天沒有完成目標也別擔心！我們相信失敗也是學習的機會。當你未能達成目標時，Habit Piggy 會扣除一小筆罰款，以提醒你保持自律。
+            </p>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
-export default about;
+export default About;

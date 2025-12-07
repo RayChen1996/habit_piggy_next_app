@@ -2,86 +2,66 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import "./Slogan.css";
-import localFont from "next/font/local";
+import Image from "next/image";
 import clsx from "clsx";
+import localFont from "next/font/local";
 
-const myFont = localFont({
-  src: "../../../public/font/LobsterTwo-Regular.ttf",
-});
+const scriptFont = localFont({ src: "../../../public/font/LobsterTwo-Regular.ttf" });
 
 export default function Slogan() {
   useEffect(() => {
     const initAOS = () => {
-      AOS.init();
+      AOS.init({ once: true });
       AOS.refresh();
     };
-
-    // Add a delay to AOS initialization (e.g., 100ms)
     const timeout = setTimeout(initAOS, 100);
-
-    // Clear the timeout on component unmount
     return () => clearTimeout(timeout);
   }, []);
 
-  const customFont = {
-    fontFamily: "YourChosenFont, sans-serif", // Replace 'YourChosenFont' with the actual font name
-  };
-
   return (
-    <div
-      data-aos="fade-up"
-      style={{
-        backgroundImage:
-          'url("https://github.com/chunjull/Habit-Piggy/blob/main/assets/images/banner.png?raw=true")',
-      }}
-      className="bg-cover gap-5 bg-center h-screen flex items-center justify-center"
-    >
-      <span style={{ ...customFont }} className=" text-5xl typing-text">
-        <span
-          data-aos="fade-up"
-          data-aos-delay="0"
-          className={clsx("word", myFont.className)}
+    <section className="relative overflow-hidden bg-[#fdd54f]">
+      <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-12 lg:flex-row lg:items-center">
+        <div className="relative flex-1" data-aos="fade-right">
+          <div className="absolute -left-6 top-10 h-14 w-14 rounded-full bg-white/60" />
+          <Image
+            src="/banner.png"
+            alt="Habit Piggy hero"
+            width={840}
+            height={700}
+            className="w-full rounded-2xl shadow-2xl"
+            priority
+          />
+        </div>
+        <div
+          className="relative flex-1 rounded-2xl bg-white p-8 shadow-xl"
+          data-aos="fade-left"
+          data-aos-delay="200"
         >
-          Do
-        </span>{" "}
-        <span
-          data-aos="fade-up"
-          data-aos-delay="500"
-          className={clsx("word", myFont.className)}
-        >
-          and
-        </span>{" "}
-        <span
-          data-aos="fade-up"
-          data-aos-delay="1000"
-          className={clsx("word", myFont.className)}
-        >
-          Track,
-        </span>
-        <br />
-        <span
-          data-aos="fade-up"
-          data-aos-delay="1500"
-          className={clsx("word", myFont.className)}
-        >
-          or
-        </span>{" "}
-        <span
-          data-aos="fade-up"
-          data-aos-delay="2000"
-          className={clsx("word", myFont.className)}
-        >
-          Feed
-        </span>{" "}
-        <span
-          data-aos="fade-up"
-          data-aos-delay="2500"
-          className={clsx("word", myFont.className)}
-        >
-          me!
-        </span>
-      </span>
-    </div>
+          <p className="mb-3 text-sm font-semibold text-[#f59e0b]">歡迎來到 Habit Piggy！</p>
+          <h2 className={clsx("mb-4 text-3xl font-bold leading-snug text-[#121212]", scriptFont.className)}>
+            Do and Track, or feed me!
+          </h2>
+          <p className="leading-7 text-[#1f1f1f]">
+            這是一個全新的習慣養成工具，專為那些渴望改變生活方式、建立健康習慣的人們設計。
+            你是否想擺脫壞習慣，同時建立良好的生活習慣？現在，就讓 Habit Piggy 與你攜手同行，幫助你實現目標。
+          </p>
+          <div className="mt-6 flex flex-wrap items-center gap-3">
+            <a
+              className="rounded-full bg-[#f8c53a] px-5 py-2 text-sm font-semibold text-[#3d2b16] shadow-md transition hover:translate-y-0.5 hover:shadow-lg"
+              href="/login"
+            >
+              會員登入
+            </a>
+            <a
+              className="rounded-full border-2 border-[#f8c53a] px-5 py-2 text-sm font-semibold text-[#3d2b16] transition hover:bg-[#fff1c7]"
+              href="/register"
+            >
+              立即註冊
+            </a>
+          </div>
+        </div>
+      </div>
+      <div className="absolute -bottom-10 -right-10 h-36 w-36 rounded-full bg-white/70" />
+    </section>
   );
 }

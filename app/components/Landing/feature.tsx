@@ -1,63 +1,61 @@
 import Image from "next/image";
 import React from "react";
 
-const feature = () => {
-  return (
-    <div className="p-10 m-5 text-black bg-white gap-5 bg-center h-2/3  flex flex-col  items-center justify-center">
-      <div className="  w-2/5 ">
-        <div style={{ position: "relative", width: "50%" }}>
-          <p style={{ position: "relative", width: "50%", zIndex: "99" }}>
-            <h3 className=" text-3xl font-bold">FEATURES</h3>
+const Feature = () => {
+  const mainFeatures = [
+    "設定習慣養成目標",
+    "更改習慣追蹤頻率",
+    "目標達成時的提醒",
+  ];
 
-            <span
-              style={{
-                position: "absolute",
-                bottom: "5px",
-                left: "-5px",
-                width: "70%",
-                borderBottom: "10px solid yellow",
-                zIndex: "-1",
-              }}
-            ></span>
+  const gridFeatures = [
+    "設定習慣養成目標",
+    "更改習慣追蹤頻率",
+    "目標達成時的提醒",
+    "輕鬆追蹤自己的進度",
+    "查看習慣的歷史記錄",
+    "分析你的改變趨勢",
+  ];
+
+  return (
+    <section className="bg-white py-14">
+      <div className="mx-auto flex max-w-6xl flex-col items-center gap-10 px-4 text-[#1f1f1f]">
+        <div className="flex w-full flex-col items-start gap-4 lg:w-2/3">
+          <div className="relative">
+            <h3 className="text-3xl font-bold">FEATURES</h3>
+            <span className="absolute -bottom-1 left-0 block h-2 w-1/2 bg-[#f8c53a]" />
+          </div>
+          <p className="text-lg leading-8">
+            「Habit Piggy」不僅僅是一個養成習慣的工具，它還提供了強大的追蹤和統計功能。
           </p>
         </div>
-        <p>
-          「Habit Piggy」不僅僅是一個養成習慣的工具，
-          <br />
-          它還提供了強大的追蹤和統計功能。
-        </p>
+
+        <div className="grid w-full gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {mainFeatures.map((feature) => (
+            <div
+              key={feature}
+              className="flex flex-col items-center justify-center gap-3 rounded-2xl border-2 border-[#f8c53a] bg-[#fff9eb] px-6 py-6 text-center shadow-md"
+            >
+              <Image width={52} height={52} alt={feature} src="/icon.png" />
+              <p className="text-lg font-semibold">{feature}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="grid w-full gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {gridFeatures.map((feature) => (
+            <div
+              key={feature}
+              className="flex min-h-[120px] flex-col items-center justify-center gap-3 rounded-2xl bg-[#f3f3f3] px-4 text-center shadow"
+            >
+              <Image width={36} height={36} alt={feature} src="/icon.png" className="opacity-80" />
+              <p className="text-base font-semibold">{feature}</p>
+            </div>
+          ))}
+        </div>
       </div>
-      <ul className="flex justify-around items-center gap-5">
-        <li className=" border p-3 border-yellow-300 ">
-          <Image
-            width={50}
-            height={50}
-            alt="設定習慣養成目標"
-            src="https://github.com/chunjull/Habit-Piggy/blob/main/assets/images/icon.png?raw=true"
-          />
-          設定習慣養成目標
-        </li>
-        <li className=" border p-3 border-yellow-300 ">
-          <Image
-            width={50}
-            height={50}
-            alt="設定習慣養成目標"
-            src="https://github.com/chunjull/Habit-Piggy/blob/main/assets/images/icon.png?raw=true"
-          />
-          更改習慣追蹤頻率
-        </li>
-        <li className=" border p-3 border-yellow-300 ">
-          <Image
-            width={50}
-            height={50}
-            alt="設定習慣養成目標"
-            src="https://github.com/chunjull/Habit-Piggy/blob/main/assets/images/icon.png?raw=true"
-          />
-          目標達成時的提醒
-        </li>
-      </ul>
-    </div>
+    </section>
   );
 };
 
-export default feature;
+export default Feature;
