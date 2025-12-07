@@ -1,22 +1,16 @@
 import React from "react";
 import Image from "next/image";
+
 export default function Footer() {
   return (
-    <footer className="footer p-10 bg-primary-content text-white ">
-      <ul className="  lg:flex justify-around w-full ">
-        <li className=" flex  items-center ">
-          <Image
-            width={40}
-            height={40}
-            src="https://github.com/chunjull/Habit-Piggy/blob/main/assets/images/icon.png?raw=true"
-            alt=""
-          />
-          <span className="font-sans hover:font-serif lg:text-xl sm:text-3xl">
-            Habit Piggy
-          </span>
-        </li>
-        <li>© 2023. All Rights Reserved.</li>
-      </ul>
+    <footer className="mt-10 bg-[#f8c53a] text-[#3d2b16]">
+      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 py-6 sm:flex-row">
+        <div className="flex items-center gap-3">
+          <Image width={48} height={48} src="/icon.png" alt="" />
+          <span className="text-xl font-semibold">Habit Piggy</span>
+        </div>
+        <p className="text-sm font-semibold">© 2023. All Rights Reserved.</p>
+      </div>
     </footer>
   );
 }

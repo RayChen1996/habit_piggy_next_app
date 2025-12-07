@@ -3,26 +3,16 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  --foreground-rgb: 29, 29, 29;
+  --background-color: #fff7e6;
 }
 
 body {
-  font-family: "Open Sans", sans-serif; /* 根據你選擇的字體名稱 */
+  font-family: "Open Sans", sans-serif;
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: var(--background-color);
+}
+
+a {
+  color: inherit;
 }

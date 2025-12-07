@@ -2,37 +2,19 @@ import React from "react";
 
 const ActionButton = () => {
   return (
-    <div className="bg-cover py-32 text-black gap-5 bg-center bg-white flex flex-col  items-center justify-center m-0 mx-auto">
-      <p style={{ position: "relative", zIndex: "99" }}>
-        <div>
-          <p style={{ position: "relative", zIndex: "99" }}>
-            <h3 className=" text-3xl font-bold">立即開始建立好習慣！</h3>
-            <span
-              style={{
-                position: "absolute",
-                bottom: "5px",
-                left: "-5px",
-                width: "100%",
-                borderBottom: "10px solid yellow",
-                zIndex: "-1",
-              }}
-            ></span>
-          </p>
+    <div className="bg-white py-14">
+      <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 px-4 text-center text-[#1f1f1f]">
+        <div className="relative">
+          <h3 className="text-3xl font-bold">立即開始建立好習慣！</h3>
+          <span className="absolute -bottom-1 left-0 block h-2 w-full bg-[#f8c53a]" />
         </div>
-        <span
-          style={{
-            position: "absolute",
-            bottom: "5px",
-            left: "-5px",
-            width: "70%",
-            borderBottom: "10px solid yellow",
-            zIndex: "-1",
-          }}
-        ></span>
-      </p>
-      <a className="btn btn-primary text-white " href="/login">
-        會員登入
-      </a>
+        <a
+          className="mt-4 rounded-full bg-[#f8c53a] px-6 py-3 text-base font-semibold text-[#3d2b16] shadow-md transition hover:-translate-y-0.5 hover:shadow-lg"
+          href="/login"
+        >
+          會員登入
+        </a>
+      </div>
     </div>
   );
 };
